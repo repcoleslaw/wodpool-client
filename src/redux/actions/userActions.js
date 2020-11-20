@@ -52,10 +52,11 @@ export const loginUser = (userData, history) => (dispatch) => {
       });
   }; 
 
-  export const logoutUser = () => (dispatch) => {
+  export const logoutUser = (history) => (dispatch) => {
     localStorage.removeItem('FBIdToken');
     delete axios.defaults.headers.common['Authorization'];
     dispatch({type: SET_UNAUTHENTICATED});
+    // history.push("/login")
   }
 
   //helper function

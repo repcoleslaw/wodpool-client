@@ -13,6 +13,7 @@ import {SET_AUTHENTICATED} from './redux/types';
 
 
 import AuthRoute from "./util/AuthRoute";
+import AdminRoute from "./util/AdminRoute";
 // import PrivateRoute from './util/PrivateRoute';
 
 //import pages
@@ -56,13 +57,13 @@ class App extends Component {
             <Route exact path="/login" component={login} />
 
             {/* AuthRoutes Need to check for authenticated boolean */}
-            <Route exact path="/home" component={home} />
+            <AuthRoute exact path="/home" component={home} />
             <Route exact path="/about" component={about} />
             <Route exact path="/pools/:poolID" component={board} />
 
             {/* AdminRoutes need to check for isAdmin toggle && authenticated */}
 
-            <Route exact path="/admin" component={admin}/>
+            <AdminRoute exact path="/admin" component={admin}/>
           </Switch>
         </Router>
       </Provider>
