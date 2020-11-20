@@ -13,7 +13,7 @@ import Poolcard from '../components/Pool';
 
 
 
-class home extends Component {
+class admin extends Component {
 
   state = {
     pools: null
@@ -36,22 +36,19 @@ class home extends Component {
       padding:"4em",
     }
 
-    let poolsMarkup = this.state.pools ? (
-    this.state.pools.map(pool => <Poolcard pool={pool} key={pool.title}/>)
-    ) : <p>loading...</p>
 
     return (
       <div>
         <Header/>
          <Row>
           <Col style={colStyle} xs={24} sm={8}>
-            <h1> Profile </h1>
+            <h1> Admin Profile </h1>
             {/* <Profile/> */}
 
           </Col>
           <Col style={colStyle} xs={24} sm={16}>
-            <h1>Pools</h1>
-            {poolsMarkup}
+            <h1>This is Admin</h1>
+            
           </Col>
   
         </Row>
@@ -65,5 +62,5 @@ class home extends Component {
 //   ui: state.ui
 // });
 
-export default (home)
+export default (admin)
 

@@ -13,3 +13,8 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 
 // Data reducer Types
+
+// Timer Types
+
+export const START_TIMER = 'START_TIMER';
+export const STOP_TIMER = 'START_TIMER';

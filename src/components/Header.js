@@ -10,7 +10,7 @@ import {Modal } from 'antd';
 
 //import assets
 
-import logo from '../assets/WhiteWrdMark.svg';
+import logo from '../assets/BlackwordMark.svg';
 
 
 
@@ -28,16 +28,21 @@ const handleModalClose = (e) =>{
 }
 
   const navStyle = {
-    background: "#1A1A1A",
-    boxShadow:"5px 5px 7px black"
+
   }
-  const liStyle = {
-    color:"black",
+  const navbar = {
     listStyle:"none",
     display:"inline-block",
-    padding:"0 2em 0 0",
-    cursor:"pointer",
-    
+    padding:"2em 2em 0 0",
+    cursor:"pointer",   
+  }
+
+  const navbarItem = {
+
+    color: "black",
+    fontSize: "16px",
+    textTransform:"uppercase",
+    fontFamily:"Arial Black"
   }
 
   const colStyle={
@@ -50,10 +55,9 @@ const handleModalClose = (e) =>{
       </Col>
       <Col xs={24} sm={16} style={colStyle}>
       <ul style={{display:"inline", lineHeight:"40px"}}>
-        <li style={liStyle}><Link to="/home">Home</Link></li>
-        <li style={liStyle}><Link to="/pools">Pools</Link></li>
-        <li style={liStyle} onClick={handleModal}>Shop</li>
-        <li style={liStyle}><Link to="/about">About</Link></li>
+        <li style={navbar}><Link style={navbarItem} to="/home">Home</Link></li>
+        <li style={navbar} onClick={handleModal}><Link to="/home" style={navbarItem}>Shop</Link></li>
+        <li style={navbar}><Link style={navbarItem} to="/about">About</Link></li>
 
 
         </ul>
@@ -71,4 +75,4 @@ const handleModalClose = (e) =>{
   )
 }
 
-export {Header} 
+export default Header 

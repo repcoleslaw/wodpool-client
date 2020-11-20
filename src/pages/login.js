@@ -29,27 +29,31 @@ export class login extends Component {
       errors: {},
     };
   }
-
+// ????? ComponentWillRecieveProps
   componentDidUpdate(prevProps) {
     if (prevProps.ui.errors !== this.props.ui.errors) {
-      this.setState({ errors: this.props.ui.errors });
+      this.setState({ ...this.state, errors: this.props.ui.errors });
     }
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log(this.state);
     const userData = {
       email: this.state.email,
       password: this.state.password,
     };
      this.props.loginUser(userData, this.props.history);
+     
   };
 
   handleChange = (e) => {
+    
     this.setState({
       [e.target.name]: e.target.value,
     });
   };
+
   render() {
     const { ui } = this.props;
     const { errors } = this.state;
@@ -113,10 +117,10 @@ export class login extends Component {
             alt="wodpool-logo"
           ></img>
           <Card style={cardStyle}>
-            <form noValidate onSubmit={this.handleSubmit}>
+            <form  onSubmit={this.handleSubmit}>
               <h1 style={{ color: "white" }}>Please Log In</h1>
 
-              <label>
+              
                 Email
                 <Input
                   id="email"
@@ -127,8 +131,9 @@ export class login extends Component {
                   value={this.state.email}
                   onChange={this.handleChange}
                 />
-              </label>
-              <label>
+              
+
+              
                 Password
                 <Input.Password
                   id="password"
@@ -142,16 +147,16 @@ export class login extends Component {
                     visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                   }
                 />
-              </label>
+              
 
-
-              {errors.email && (
+              
+              {errors && errors.email && (
                 <Alert style={{marginBottom:10}}message={errors.email} type="error" showIcon />
               )}
-              {errors.password && (
+              {errors && errors.password && (
                 <Alert style={{marginBottom:10}} message={errors.password} type="error" showIcon />
               )}
-              {errors.general && (
+              {errors && errors.general && (
                 <Alert
                   message={errors.general}
                   type="error"

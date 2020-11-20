@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Card, Button} from 'antd';
 import {Link} from 'react-router-dom';
 
-class PoolCard extends Component {
+class Poolpage extends Component {
   render() {
     const { pool : {
       competitorCount, cost, desc, title, maxParticipants, poolID
@@ -29,4 +29,4 @@ class PoolCard extends Component {
   }
 }
 
-export default PoolCard
+export default Poolpage

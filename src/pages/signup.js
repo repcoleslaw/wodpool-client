@@ -191,9 +191,6 @@ export class signup extends Component {
               {errors.handle && (
                 <Alert message={errors.handle} type="error" showIcon/>
               )}
-              {errors.agreeTOS && (
-                <Alert message={errors.agreeTOS} type="error" showIcon/>
-              )}
               <br/>
               <button type="submit" style={butPrimaryStyle}>
                 Sign Up
@@ -213,16 +210,18 @@ export class signup extends Component {
 }
 
 
+signup.propTypes = {
+  signupUser: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  ui: PropTypes.object.isRequired
+}
 
 const mapStateToProps = (state) => ({
   user: state.user,
   ui: state.ui
 });
 
-signup.propTypes = {
-  signupUser: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired,
-  ui: PropTypes.object.isRequired
-}
+
+
 
 export default connect(mapStateToProps, {signupUser})(signup)
