@@ -47,8 +47,15 @@ function Header(props, history) {
 
   const navbarItem = {
     color: "black",
-    fontSize: "16px",
-    textTransform: "uppercase",
+    fontSize: "18px",
+    textTransform: "lowercase",
+    fontFamily:'Rock Salt'
+  };
+  const navbarButton = {
+    color: "black",
+    fontSize: "18px",
+    textTransform: "lowercase",
+    fontFamily:'Rock Salt'
   };
 
   const colStyle = {
@@ -64,7 +71,7 @@ function Header(props, history) {
         <li style={navbar}><Link style={navbarItem} to="/home">Home</Link></li>
         <li style={navbar} onClick={handleModal}><Link to="/home" style={navbarItem}>Shop</Link></li>
         <li style={navbar}><Link style={navbarItem} to="/about">About</Link></li>
-        <li style={navbar}><button onClick={handleClick}>Log Out</button></li>
+        <li style={navbar}><button style={navbarButton} onClick={handleClick}>Log Out</button></li>
 
 
         </ul>
