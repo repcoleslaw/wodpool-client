@@ -22,6 +22,7 @@ function Header(props, history) {
 
 
   const [modal, setModal] = useState(false);
+  
 
   const handleModal = (e) => {
     setModal(true);
@@ -38,10 +39,13 @@ function Header(props, history) {
   }
 
   // style objects
+  const rowStyle = {
+    borderBottom: "1px solid white"
+  }
   const navbar = {
     listStyle: "none",
     display: "inline-block",
-    padding: "2em 2em 0 0",
+    padding: "2em 8em 0 0",
     cursor: "pointer",
   };
 
@@ -50,6 +54,9 @@ function Header(props, history) {
     fontSize: "18px",
     textTransform: "lowercase",
     fontFamily:'Rock Salt'
+  };
+  const navbarHover = {
+borderBottom: "1px solid white"
   };
   const navbarButton = {
     color: "black",
@@ -62,13 +69,13 @@ function Header(props, history) {
     padding: "2em",
   };
   return (
-    <Row >
+    <Row style={rowStyle}>
       <Col  xs={24} sm={8} style={colStyle}>
-        <img src={logo} style={{height:"5em", width:"auto", margin:"0 2em"}}alt="logo"/>
+        <img src={logo} style={{height:"5em", width:"auto", margin:"0 5em"}}alt="logo"/>
       </Col>
       <Col xs={24} sm={16} style={colStyle}>
-      <ul style={{display:"inline", lineHeight:"40px", padding:"2em"}}>
-        <li style={navbar}><Link style={navbarItem} to="/home">Home</Link></li>
+      <ul style={{display:"inline", lineHeight:"40px", padding:"0em"}}>
+        <li style={navbar}><Link style={navbarItem} onMouseEnter={navbarHover} to="/home">Home</Link></li>
         <li style={navbar} onClick={handleModal}><Link to="/home" style={navbarItem}>Shop</Link></li>
         <li style={navbar}><Link style={navbarItem} to="/about">About</Link></li>
         <li style={navbar}><button style={navbarButton} onClick={handleClick}>Log Out</button></li>
