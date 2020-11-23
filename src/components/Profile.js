@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import dayjs from 'dayjs';
+import axios from 'axios';
 
 import './profile.css'
 
 // antD stuff
-import {Card, Button} from 'antd';
+import {Card} from 'antd';
 
 const avatarImg = {
   width:"200px",
@@ -15,51 +15,21 @@ const avatarImg = {
 
 
 
+
 class Profile extends Component {
 
-  handleImageChange = (e) => {
-    const image = e.target.files[0];
-    //send to server
-    
-  }
 
-  render() {
-    const {
-      user:{
-        credentials: {handle, createdAt, imageUrl, bio, twitter, location, instagram}, loading, 
-        authenticated, 
-        pools}
-      } = this.props;
-    
-    let profileMarkup = !loading ? 
-    (authenticated ? (
-        <Card>
-          <div className="profile">
-            <div className="profile-image">
-            <img style={avatarImg} src={imageUrl} alt="profile"></img>
-            <input type="file" id="imageInput" onChange={this.handleImageChange}>change profile image</input>
-            </div>
-            
-            <br/>
-            
-            <h2>{handle}</h2>
-            {bio && <p>bio: {bio}</p>}
-            {location && <p>location: {location}</p>}
-            <hr/>
-            {twitter && <p>twitter: {twitter}</p>}
-            {instagram && <p>instagram: {instagram}</p>}
-            <hr/>
-            <span>Joined  {dayjs(createdAt).format('MMM YYYY')}</span>
-            <br/>
-            <span>Competed in  {pools.length} pools</span>
-            
-          </div>
-        </Card>
-      ) : (<p>No profile found, please log in again.</p>)
-    ) 
-    : (<p>loading...</p>)
 
-    return profileMarkup;
+
+  render(state) {
+    
+    return (
+      <div>
+      <div>This should be where the profile exists</div>
+      <button onClick={this.fireConsoleLog}>test user data</button>
+      </div>
+
+    )
   }
 }
 
