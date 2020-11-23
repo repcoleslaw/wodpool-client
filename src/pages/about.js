@@ -13,6 +13,13 @@ function about() {
 
   const colStyle = {
     padding:"4em",
+    margin:"4em",
+  }
+  const colPoolStyle = {
+    padding:"4em",
+    margin:"4em",
+    background:"rgba(0,0,0,0.25)",
+    boxShadow:"5px 5px 8px #1A1A1A"
   }
   function callback(key) {
    
@@ -23,11 +30,11 @@ function about() {
     <div>
       <Header/>
       <Row>
-        <Col style={colStyle} xs={24} sm={8}>
+        <Col style={colStyle} xs={24} sm={6}>
           <h1>Profile</h1>
           <Profile/>
         </Col>
-        <Col style={colStyle} xs={24} sm={16}>
+        <Col style={colPoolStyle} xs={24} sm={14}>
           <h1>About us</h1>
           <small>Have some questions? Maybe we have can tell you a bit about us. </small>
           <hr/>
