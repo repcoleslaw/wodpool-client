@@ -46,7 +46,7 @@ function Header(props, history) {
   };
 
   const navbarItem = {
-    color: "black",
+    color: "white",
     fontSize: "18px",
     textTransform: "lowercase",
     fontFamily:'Rock Salt'
