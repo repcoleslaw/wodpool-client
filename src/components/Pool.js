@@ -10,14 +10,13 @@ class PoolCard extends Component {
 
     const style = {
       margin:"2em 0",
-      padding:"2em"
-
+      padding:"2em",
     }
 
     return (
       <Card
-        title={<h2>{title}</h2>}
-        style={style}
+        title={<h3>{title}</h3>}
+       style={style}
       >
         <p>{competitorCount}/{maxParticipants}</p>
         <p>{desc}</p>

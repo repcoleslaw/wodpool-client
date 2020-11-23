@@ -9,10 +9,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background:none;
 
 }
 
-h1, h2{
+html{
+  background: linear-gradient(90deg, #191919 0%, #474747 50%, #1A1A1A 100%);
+}
+
+h1{
+  font-family: 'Rock Salt', sans-serif;
+  color:white;
+}
+h2, h3{
   font-family: 'Rock Salt', sans-serif;
 }
 
