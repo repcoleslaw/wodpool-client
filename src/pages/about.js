@@ -19,7 +19,12 @@ function about() {
     padding:"4em",
     margin:"4em",
     background:"rgba(0,0,0,0.25)",
-    boxShadow:"5px 5px 8px #1A1A1A"
+    boxShadow:"5px 5px 8px #1A1A1A",
+    color:"white"
+  }
+
+  const faqStyle = {
+
   }
   function callback(key) {
    
@@ -50,20 +55,21 @@ function about() {
           <hr/>
           <h1 style={{padding:"15px 0"}}>FAQ</h1>
  
-          <Collapse defaultActiveKey={['1']} onChange={callback}>
-            <Panel header="Can I join multiple Pools" key="1">
+          <Collapse defaultActiveKey={['1']} onChange={callback}
+           className="site-collapse-custom-collapse">
+            <Panel header="Can I join multiple Pools" key="1" className="site-collapse-custom-panel">
               <p>Technically there is nothing stoping you from joining multiple pools, but we recommend you do participate in one pool at a time.</p>
             </Panel>
-            <Panel header="Do I have to post to social media?" key="2">
+            <Panel header="Do I have to post to social media?" key="2" className="site-collapse-custom-panel">
               <p>No, but, we would like you to. By sharing on social media we accomplish 2 things. The first, driving excitement and engagement to the site increases the competitive nature and reimbursements on each pool. Secondly, use video as a means of validating your winning entries, so if you post your videos online it will be easier for you to remember to submit them.</p>
             </Panel>
-            <Panel header="How is the money securely gathered?" key="3">
+            <Panel header="How is the money securely gathered?" key="3" className="site-collapse-custom-panel">
               <p>We are using Stripe to manage secure payments.</p>
             </Panel>
-            <Panel header="When I win, how will I be reimbursed?" key="4">
+            <Panel header="When I win, how will I be reimbursed?" key="4" className="site-collapse-custom-panel">
               <p>You will be contacted through your user accounts' provided email, and from there our administrative team will set up your preferred e-transfer method.</p>
             </Panel>
-            <Panel header="If I fall off the table, do I still get to continue the workouts?" key="5">
+            <Panel header="If I fall off the table, do I still get to continue the workouts?" key="5" className="site-collapse-custom-panel">
               <p>Yes! Once you purchased into a pool, the access to fitness content is yours to keep. Even though you may not be in line to win the pool, we want you to keep training!</p>
             </Panel>
           </Collapse>
