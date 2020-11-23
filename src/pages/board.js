@@ -73,6 +73,13 @@ class board extends Component {
       ];
     
     const columns = [
+
+      {
+        title: 'Rank',
+        dataIndex: 'rank',
+        key:'rank',
+        render: text => <a>{text}</a>
+      },
       {
         title: 'Handle',
         dataIndex: 'handle',
