@@ -16,7 +16,7 @@ class PoolCard extends Component {
 
     return (
       <Card
-        title={title}
+        title={<h2>{title}</h2>}
         style={style}
       >
         <p>{competitorCount}/{maxParticipants}</p>

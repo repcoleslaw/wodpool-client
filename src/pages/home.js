@@ -8,7 +8,7 @@ import {Row, Col} from 'antd';
 //import components
 import Header from '../components/Header';
 import Poolcard from '../components/Pool';
-// import Profile from '../components/Profile';
+import Profile from '../components/Profile';
 
 
 
@@ -46,7 +46,7 @@ class home extends Component {
          <Row>
           <Col style={colStyle} xs={24} sm={8}>
             <h1> Profile </h1>
-            {/* <Profile/> */}
+            <Profile/>
 
           </Col>
           <Col style={colStyle} xs={24} sm={16}>

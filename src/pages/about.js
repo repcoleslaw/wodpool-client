@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 
 //components
 import Header from '../components/Header';
+import Profile from '../components/Profile';
 
 //import antd things
 import {Row, Col} from 'antd'
@@ -23,7 +24,8 @@ function about() {
       <Header/>
       <Row>
         <Col style={colStyle} xs={24} sm={8}>
-          Expand Profile [+]
+          <h1>Profile</h1>
+          <Profile/>
         </Col>
         <Col style={colStyle} xs={24} sm={16}>
           <h1>About us</h1>
