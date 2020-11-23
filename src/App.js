@@ -57,13 +57,15 @@ class App extends Component {
             <Route exact path="/login" component={login} />
 
             {/* AuthRoutes Need to check for authenticated boolean */}
-            <AuthRoute exact path="/home" component={home} />
+            <Route exact path="/home" component={home} />
             <Route exact path="/about" component={about} />
-            <Route exact path="/pools/:poolID" component={board} />
 
             {/* AdminRoutes need to check for isAdmin toggle && authenticated */}
-
             <AdminRoute exact path="/admin" component={admin}/>
+
+            {/* PaidRoutes need to check for authenticated and paid boolean */}
+            <Route exact path="/pools/:poolID" component={board} />
+            
           </Switch>
         </Router>
       </Provider>

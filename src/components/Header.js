@@ -67,7 +67,7 @@ function Header(props, history) {
         <img src={logo} style={{height:"5em", width:"auto", margin:"0 2em"}}alt="logo"/>
       </Col>
       <Col xs={24} sm={16} style={colStyle}>
-      <ul style={{display:"inline", lineHeight:"40px"}}>
+      <ul style={{display:"inline", lineHeight:"40px", padding:"2em"}}>
         <li style={navbar}><Link style={navbarItem} to="/home">Home</Link></li>
         <li style={navbar} onClick={handleModal}><Link to="/home" style={navbarItem}>Shop</Link></li>
         <li style={navbar}><Link style={navbarItem} to="/about">About</Link></li>
