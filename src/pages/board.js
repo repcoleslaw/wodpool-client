@@ -44,6 +44,13 @@ class board extends Component {
 
     const colStyle = {
       padding:"4em",
+      margin:"4em",
+    }
+    const colPoolStyle = {
+      padding:"4em",
+      margin:"4em",
+      background:"rgba(0,0,0,0.25)",
+      boxShadow:"5px 5px 8px #1A1A1A"
     }
     const { TabPane } = Tabs;
 
@@ -110,10 +117,10 @@ class board extends Component {
       <div>
         <Header/>
         <Row>
-          <Col style={colStyle} xs={24} sm={8}> 
+          <Col style={colStyle} xs={24} sm={6}> 
             <h1>Profile</h1>
           </Col>
-          <Col style={colStyle} xs={24} sm={16}>
+          <Col style={colPoolStyle} xs={24} sm={14}>
             <div>
             {poolMarkup}
             </div>
