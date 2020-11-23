@@ -14,7 +14,7 @@ import {Modal } from 'antd';
 
 //import assets
 
-import logo from '../assets/BlackwordMark.svg';
+import logo from '../assets/WhiteWrdMark.svg';
 
 
 
