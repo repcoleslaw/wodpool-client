@@ -41,7 +41,7 @@ function about() {
         </Col>
         <Col style={colPoolStyle} xs={24} sm={14}>
           <h1>About us</h1>
-          <small>Have some questions? Maybe we have can tell you a bit about us. </small>
+          <small>Have some questions? Maybe we can tell you a bit about us. </small>
           <hr/>
           <h1 style={{padding:"15px 0"}} >WODPOOL</h1>
           <p>WODPOOL is a fitness program provider. We offer a variety of programs, known on this site as Pools, that are available to the registered users. Some of the pools are available for free, and others are available for purchase! </p>
