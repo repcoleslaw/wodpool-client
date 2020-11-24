@@ -11,9 +11,12 @@ import {Collapse} from 'antd'
 
 function about() {
 
-  const colStyle = {
+  const colProfileStyle = {
+    position:"relative",
     padding:"4em",
     margin:"4em",
+    background:"rgba(0,0,0,0.25)",
+    boxShadow:"5px 5px 8px #1A1A1A"
   }
   const colPoolStyle = {
     padding:"4em",
@@ -23,9 +26,7 @@ function about() {
     color:"white"
   }
 
-  const faqStyle = {
 
-  }
   function callback(key) {
    
   }
@@ -35,7 +36,7 @@ function about() {
     <div>
       <Header/>
       <Row>
-        <Col style={colStyle} xs={24} sm={6}>
+        <Col style={colProfileStyle} xs={24} sm={6}>
           <h1>Profile</h1>
           <Profile/>
         </Col>
