@@ -1,22 +1,41 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+
 import { PropTypes } from "prop-types";
 import dayjs from "dayjs";
-import axios from "axios";
+
+//redux stuff
+import { connect } from "react-redux";
+import {uploadImage, logoutUser} from '../redux/actions/userActions'
 
 import "./profile.css";
 
 // antD stuff
-import { Card } from "antd";
+import { Tooltip } from "antd";
+import { EditOutlined, InstagramFilled, TwitterOutlined } from '@ant-design/icons';
 
-const avatarImg = {
-  width: "200px",
-  height: "200px",
-};
-
-const styles = {};
 
 class Profile extends Component {
+
+  constructor(props){
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.fileInput = React.createRef();
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const image = this.fileInput.current.files[0];
+    const formData = new FormData();
+    formData.append("image", image, image.name)
+    this.props.uploadImage(formData);
+  }
+
+  handleEditPicture = () => {
+    const fileInput = document.getElementById("imgInput");
+    fileInput.click();
+  }
+
+
   render(props) {
     const {
       user: { credentials, loading, authenticated },
@@ -31,11 +50,17 @@ class Profile extends Component {
       textAlign: "center",
     };
 
+    const iconColor = {
+      color:"white",
+      fontSize:"20px"
+    }
+
     const imageStyle = {
       width: "200px",
       height: "200px",
       objectFit: "cover",
       maxWidth: "100%",
+      borderRadius: "50%"
     };
 
     let profileMarkup = !loading ? (
@@ -47,12 +72,18 @@ class Profile extends Component {
               src={credentials.imageUrl}
               alt="profileImage"
             ></img>
+            <br/>
+            <Tooltip title="edit profile image">
+              <input type="file" id="imgInput" hidden="hidden"ref={this.fileInput} onChange={this.handleSubmit}/>
+                <button onClick={this.handleEditPicture} className="profile-Btn"><EditOutlined style={iconColor} /></button>
+
+            </Tooltip>
+
           </div>
           <div>
             <h2 className="profileTitle">{credentials.handle}</h2>
             
             <button>edit details</button>
-            <button>upload image</button>
             <div className="profile-details">
             <hr className="profileHR" />
             {credentials.location && (<p>{credentials.location}</p>)}
@@ -69,11 +100,11 @@ class Profile extends Component {
                 <p>wodpool: {credentials.handle}</p>
               )}
               {credentials.instagram && (
-                <p>instagram: {credentials.instagram}</p>
+                <p><InstagramFilled /> {credentials.instagram}</p>
               )}
-              {credentials.twitter && <p>twitter: {credentials.twitter}</p>}
+              {credentials.twitter && <p><TwitterOutlined /> {credentials.twitter}</p>}
             </label>
-            
+              {credentials.isAdmin && <p> I have admin{credentials.isAdmin}</p>}
 
           </div>
 
@@ -95,10 +126,15 @@ class Profile extends Component {
 
 const mapStateToProps = (state) => ({
   user: state.user,
+
 });
 
+const mapActionsToProps = {logoutUser, uploadImage};
+
 Profile.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  uploadImage: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
 };
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps, mapActionsToProps)(Profile);

@@ -1,24 +1,26 @@
 import {SET_USER, SET_ERRORS, CLEAR_ERRORS, LOADING_UI, SET_UNAUTHENTICATED, LOADING_USER} from '../types';
 import axios from 'axios';
 
-export const loginUser = (userData, history) => (dispatch) => {
+export const loginUser = (userData, history) => async (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
-    .post('/login', userData)
+    .post("/login", userData)
     .then((res) => {
-      setAuthorizationHeader(res.data.token);       
+      setAuthorizationHeader(res.data.token);
       dispatch(getUserData());
-      dispatch({ type: CLEAR_ERRORS });
-      history.replace("/home");
-      console.log(history);
+      dispatch({ type: CLEAR_ERRORS }); 
+    })
+    .then(()=>{
+      history.push('/home');
     })
     .catch((err) => {
-      console.log(err)
+      console.log(err);
       dispatch({
         type: SET_ERRORS,
         payload: err.response.data,
       });
     });
+  
 };
 
   export const getUserData = () => (dispatch) => {
@@ -40,9 +42,10 @@ export const loginUser = (userData, history) => (dispatch) => {
       .then((res) => {
         setAuthorizationHeader(res.data.token);        
         dispatch(getUserData());
-        dispatch({ type: CLEAR_ERRORS });
+        dispatch({ type: CLEAR_ERRORS });   
+      })
+      .then(()=>{
         history.push("/home");
-       
       })
       .catch((err) => {
         dispatch({
@@ -56,7 +59,6 @@ export const loginUser = (userData, history) => (dispatch) => {
     localStorage.removeItem('FBIdToken');
     delete axios.defaults.headers.common['Authorization'];
     dispatch({type: SET_UNAUTHENTICATED});
-    // history.push("/login")
   }
 
   //helper function
@@ -65,3 +67,15 @@ export const loginUser = (userData, history) => (dispatch) => {
     localStorage.setItem("FBIdToken", FBIdToken);
     axios.defaults.headers.common["Authorization"] = FBIdToken;
   };
+
+
+  // upload image
+
+  export const uploadImage = (formData) => (dispatch) =>{
+    dispatch({type: LOADING_USER});
+    axios.post('/user/image', formData)
+    .then(() => {
+      dispatch(getUserData())
+    })
+    .catch(err => console.log(err));
+  }
