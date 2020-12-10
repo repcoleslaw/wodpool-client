@@ -81,7 +81,6 @@ export class login extends Component {
       justifyItems: "center",
       margin: "0 auto",
       position: "relative",
-      top: "15em",
       textAlign: "center",
     };
     const butPrimaryStyle = {
@@ -109,6 +108,7 @@ export class login extends Component {
           <img
             src={whiteWordMark}
             style={{
+              paddingTop:'5em',
               maxWidth: "400px",
               width: "60%",
               height: "auto",

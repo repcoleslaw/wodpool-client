@@ -22,7 +22,6 @@ class home extends Component {
   componentDidMount(){
     axios.get('/pools')
     .then(res => {
-      console.log(res.data)
       this.setState({
         pools: res.data
       })
@@ -38,9 +37,12 @@ class home extends Component {
       background:"rgba(0,0,0,0.25)",
       boxShadow:"5px 5px 8px #1A1A1A"
     }
-    const colStyle = {
+    const colProfileStyle = {
+      position:"relative",
       padding:"4em",
       margin:"4em",
+      background:"rgba(0,0,0,0.25)",
+      boxShadow:"5px 5px 8px #1A1A1A"
     }
 
     let poolsMarkup = this.state.pools ? (
@@ -51,8 +53,8 @@ class home extends Component {
       <div>
         <Header/>
          <Row>
-          <Col style={colStyle} xs={24} sm={6}>
-            <h1> Profile </h1>
+          <Col style={colProfileStyle} xs={24} sm={6}>
+            <h1>Profile</h1>
             <Profile/>
 
           </Col>

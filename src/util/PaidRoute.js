@@ -1,27 +1,23 @@
 import React from 'react'
 import {Route, Redirect} from 'react-router-dom';
-import { connect } from 'react-redux';
+
+import {useSelector} from 'react-redux';
 
 
 
-const mapStateToProps = (state) => ({
-  authenticated: state.user.authenticated,
-  user: state.user,
-  comeptitor: state.competitor
-})
+const PaidRoute = (props) => {
 
-const PaidRoute = ({component: Component, authenticated, user, ...rest}) => {
+  const hasPaid = useSelector((state) => state.user);
 
-
- return(
-   <Route
-    {...rest}
-  
-    render= {(props) => user.hasPaid === true ? <Component {...props}/> : <Redirect to='/home'/> } />
- )
-} 
+  return (
+    <Route
+      
+      render={(props) =>
+        hasPaid === true ? <props.Component {...props} /> : <Redirect to="/home" />
+      }
+    />
+  );
+}; 
 
 
-
-
-export default connect(mapStateToProps)(PaidRoute);
+export default (PaidRoute);

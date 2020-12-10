@@ -18,6 +18,7 @@ import AdminRoute from "./util/AdminRoute";
 
 //import pages
 import splash from './pages/splash.js';
+// import pay from './pages/pay.js';
 import about from './pages/about.js';
 import login from './pages/login.js';
 import home from './pages/home.js';
@@ -57,14 +58,15 @@ class App extends Component {
             <Route exact path="/login" component={login} />
 
             {/* AuthRoutes Need to check for authenticated boolean */}
-            <Route exact path="/home" component={home} />
-            <Route exact path="/about" component={about} />
+            <AuthRoute exact path="/home" component={home} />
+            <AuthRoute exact path="/about" component={about} />
 
             {/* AdminRoutes need to check for isAdmin toggle && authenticated */}
             <AdminRoute exact path="/admin" component={admin}/>
 
             {/* PaidRoutes need to check for authenticated and paid boolean */}
             <Route exact path="/pools/:poolID" component={board} />
+            {/* <Route exact path="/pools/:poolID/join" component={pay} /> */}
             
           </Switch>
         </Router>

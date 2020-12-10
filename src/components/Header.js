@@ -55,9 +55,7 @@ function Header(props, history) {
     textTransform: "lowercase",
     fontFamily:'Rock Salt'
   };
-  const navbarHover = {
-borderBottom: "1px solid white"
-  };
+
   const navbarButton = {
     color: "black",
     fontSize: "18px",
@@ -75,7 +73,7 @@ borderBottom: "1px solid white"
       </Col>
       <Col xs={24} sm={16} style={colStyle}>
       <ul style={{display:"inline", lineHeight:"40px", padding:"0em"}}>
-        <li style={navbar}><Link style={navbarItem} onMouseEnter={navbarHover} to="/home">Home</Link></li>
+        <li style={navbar}><Link style={navbarItem}  to="/home">Home</Link></li>
         <li style={navbar} onClick={handleModal}><Link to="/home" style={navbarItem}>Shop</Link></li>
         <li style={navbar}><Link style={navbarItem} to="/about">About</Link></li>
         <li style={navbar}><button style={navbarButton} onClick={handleClick}>Log Out</button></li>

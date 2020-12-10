@@ -17,6 +17,11 @@ class PoolCard extends Component {
 
     }
 
+    const buttonStyle = {
+      marginRight:"1em",
+      color:"#1a1a1a"
+    }
+
     return (
       <Card
         title={<h2 style={{color:"white"}}>{title}</h2>}
@@ -27,8 +32,8 @@ class PoolCard extends Component {
         <p>{competitorCount}/{maxParticipants}</p>
         <p>{desc}</p>
         <p>{cost}</p>
-        <Button><Link to={`/pools/${poolID}/join`}>Join Pool</Link></Button>
-        <Button><Link to={`/pools/${poolID}`}>Go To Board</Link></Button>
+        <Button style={buttonStyle} shape="round"><Link to={`/pools/${poolID}/join`}>Join Pool</Link></Button>
+        <Button style={buttonStyle} shape="round"><Link to={`/pools/${poolID}`}>Go To Board</Link></Button>
       </Card>
     )
   }
