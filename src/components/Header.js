@@ -8,13 +8,13 @@ import {connect} from 'react-redux';
 import { logoutUser } from '../redux/actions/userActions';
 
 //antD stuff
-import {Row, Col} from 'antd';
+import {Row} from 'antd';
 import {Modal } from 'antd';
 
 
 //import assets
 
-import logo from '../assets/WhiteWrdMark.svg';
+import logo from '../assets/icon.png';
 
 
 
@@ -39,56 +39,37 @@ function Header(props, history) {
   }
 
   // style objects
-  const rowStyle = {
-    borderBottom: "1px solid white"
-  }
+
   const navbar = {
     listStyle: "none",
     display: "inline-block",
-    padding: "2em 8em 0 0",
+    padding: "2em 4em",
     cursor: "pointer",
   };
 
   const navbarItem = {
     color: "white",
-    fontSize: "18px",
-    textTransform: "lowercase",
-    fontFamily:'Rock Salt'
+    fontSize: "14px",
+    textAlign:"center",
+    textTransform: "uppercase",
+    fontFamily:'Roboto Condensed',
+    fontWeight:"bold"
   };
 
-  const navbarButton = {
-    color: "black",
-    fontSize: "18px",
-    textTransform: "lowercase",
-    fontFamily:'Rock Salt'
-  };
 
-  const colStyle = {
-    padding: "2em",
-  };
+
   return (
-    <Row style={rowStyle}>
-      <Col  xs={24} sm={8} style={colStyle}>
-        <img src={logo} style={{height:"5em", width:"auto", margin:"0 5em"}}alt="logo"/>
-      </Col>
-      <Col xs={24} sm={16} style={colStyle}>
-      <ul style={{display:"inline", lineHeight:"40px", padding:"0em"}}>
-        <li style={navbar}><Link style={navbarItem}  to="/home">Home</Link></li>
-        <li style={navbar} onClick={handleModal}><Link to="/home" style={navbarItem}>Shop</Link></li>
-        <li style={navbar}><Link style={navbarItem} to="/about">About</Link></li>
-        <li style={navbar}><button style={navbarButton} onClick={handleClick}>Log Out</button></li>
+    <Row >
+      <Link to="/">
+      <img src={logo} style={{ height: "2em", width: "auto", margin: "2em" }} alt="logo" />
+      </Link>
+      <div style={{justifyContent:"center"}}>
 
+      <li style={navbar}><Link style={navbarItem} to="/home">HOME</Link></li>
+      <li style={navbar}><Link style={navbarItem} to="/about">LOGIN</Link></li>
 
-        </ul>
-      </Col>
+      </div>
 
-        <Modal
-        visible={modal}
-        onCancel={handleModalClose}
-        onOk={(e)=>setModal(false)}
-        >
-          <h2>Coming Soon!</h2>
-        </Modal>
 
     </Row>
   )

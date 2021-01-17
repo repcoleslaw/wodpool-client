@@ -8,7 +8,7 @@ import {Row, Col} from 'antd';
 //import components
 import Header from '../components/Header';
 import Poolcard from '../components/Pool';
-import Profile from '../components/Profile';
+// import Profile from '../components/Profile';
 
 
 
@@ -33,16 +33,9 @@ class home extends Component {
   render(){
     const colPoolStyle = {
       padding:"4em",
-      margin:"4em",
+      margin:"0 auto",
       background:"rgba(0,0,0,0.25)",
-      boxShadow:"5px 5px 8px #1A1A1A"
-    }
-    const colProfileStyle = {
-      position:"relative",
-      padding:"4em",
-      margin:"4em",
-      background:"rgba(0,0,0,0.25)",
-      boxShadow:"5px 5px 8px #1A1A1A"
+      
     }
 
     let poolsMarkup = this.state.pools ? (
@@ -50,14 +43,9 @@ class home extends Component {
     ) : <p>loading...</p>
 
     return (
-      <div>
+      <div style={{background:"#a1a1a1"}}>
         <Header/>
          <Row>
-          <Col style={colProfileStyle} xs={24} sm={6}>
-            <h1>Profile</h1>
-            <Profile/>
-
-          </Col>
           <Col style={colPoolStyle} xs={24} sm={14}>
             <h1>Pools</h1>
             {poolsMarkup}

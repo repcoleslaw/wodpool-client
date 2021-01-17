@@ -66,8 +66,7 @@ export class signup extends Component {
     const cardStyle={
       maxWidth:"600px",
       margin:"0 auto",
-      position:"relative",
-      top:"5em",
+
       textAlign:"left",
       padding:"2em",
       background:"radial-gradient(100% 100% at 50% 100%, rgba(71, 71, 71, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%)",
@@ -88,7 +87,7 @@ export class signup extends Component {
 
     return (
       <>
-      <div style={{zIndex:"-1", position:"absolute", top:'0', width:'100vw', height:'85vh', background: `url(${background})`}}/>
+      <div style={{zIndex:"-1", position:"absolute", top:'0', width:'100vw', height:'90vh', background: `url(${background})`}}/>
       <Header/>
         <Row style={{ height: "74vh" }}>
           <Col style={{ textAlign: "center", margin: "5em auto" }}>
@@ -104,8 +103,8 @@ export class signup extends Component {
             ></img>
             <Countdown value={deadline} valueStyle={{color:"#ffffff", paddingBottom:"15px", fontSize:"4em", textShadow:"2px 2px 4px #000000"}}/>
             <Button block type="primary" style={{marginBottom:"1em", textTransform:"uppercase", fontFamily:"Roboto Condensed", letterSpacing:".25em"}}>
-              <Link to="/signup">Sign up
-              </Link>
+              <a href="#signup">Sign up
+              </a>
             </Button>
             <Button block type="primary" style={{marginBottom:"1em", textTransform:"uppercase", fontFamily:"Roboto Condensed", letterSpacing:".25em"}}>
               <Link to="/login">Login
@@ -116,9 +115,10 @@ export class signup extends Component {
          
          
         </Row>
-       <Row>
+       <Row style={{backgroundColor:"#a1a1a1", padding:"4em"}}>
        <Card style={cardStyle}>
-          <form noValidate onSubmit={this.handleSubmit}>
+           
+          <form id="signup" noValidate onSubmit={this.handleSubmit}>
             <h1 style={{ color: "white" }}>Sign Up</h1>
 
             <label>

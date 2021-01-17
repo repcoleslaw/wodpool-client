@@ -2,6 +2,12 @@
 @import '~antd/dist/antd.css';
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Rock+Salt&display=swap');
 
+/* 
+*{
+  border:1px solid red;
+} */
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Sergio IO', 'Oxygen',
@@ -13,12 +19,10 @@ body {
 
 }
 
-html{
-  background: linear-gradient(90deg, #1D1D1D 0%, #242236 50%, #1D1D1D 100%);
-}
+
 
 h1{
-  font-family: 'Rock Salt', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   color:white;
 }
 h2, h3{

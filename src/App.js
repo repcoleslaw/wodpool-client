@@ -17,8 +17,7 @@ import AdminRoute from "./util/AdminRoute";
 // import PrivateRoute from './util/PrivateRoute';
 
 //import pages
-import splash from './pages/splash.js';
-// import pay from './pages/pay.js';
+import splash from './pages/splash_v2.js';
 import about from './pages/about.js';
 import login from './pages/login.js';
 import home from './pages/home.js';
@@ -35,7 +34,7 @@ if(token){
   const decodedToken = jwtDecode(token);
   if(decodedToken.exp * 1000 < Date.now()){
     store.dispatch(logoutUser())
-    window.location.href='/login';
+    window.location.href='/';
   } else { 
       store.dispatch({type: SET_AUTHENTICATED});
       axios.defaults.headers.common['Authorization'] = token;
@@ -56,6 +55,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={splash} />
             <Route exact path="/login" component={login} />
+
 
             {/* AuthRoutes Need to check for authenticated boolean */}
             <AuthRoute exact path="/home" component={home} />
