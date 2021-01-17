@@ -17,7 +17,7 @@ const CustomCard = ({ children }) => (
   </Card>
 );
 
-const Heading = ({ text }) => (text ? <h1>{text}</h1> : null);
+export const Heading = ({ text }) => (text ? <h1>{text}</h1> : null);
 
 const Pool = ({ text = "Unassigned" }) => (
   <p style={{ color: "grey" }}>Pool ID: {text}</p>
@@ -32,9 +32,10 @@ const Join = ({ id, max, name }) => {
   const handleModalOpen = toggleModalState(true);
   const handleModalClose = toggleModalState(false);
 
-  const Name = React.createElement(Heading, {
-    text: name,
-  });
+  const Name = () =>
+    React.createElement(Heading, {
+      text: name,
+    });
 
   return (
     <>
