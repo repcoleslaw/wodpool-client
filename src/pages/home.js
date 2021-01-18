@@ -33,14 +33,14 @@ class home extends Component {
   render(){
     const colPoolStyle = {
       padding:"4em",
-      margin:"0 auto",
-      background:"rgba(0,0,0,0.25)",
-      
+      margin:"0 auto"
     }
 
     let poolsMarkup = this.state.pools ? (
     this.state.pools.map(pool => <Poolcard pool={pool} key={pool.title}/>)
     ) : <p>loading...</p>
+
+  
 
     return (
       <div style={{background:"#a1a1a1"}}>

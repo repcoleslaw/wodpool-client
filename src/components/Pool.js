@@ -3,9 +3,11 @@ import {Card, Button} from 'antd';
 import {Link} from 'react-router-dom';
 
 class PoolCard extends Component {
+
+
   render() {
     const { pool : {
-      competitorCount, cost, desc, title, maxParticipants, poolID
+      competitorCount, cost, desc, title, maxParticipants, poolID, active
     }} = this.props
 
     const style = {
@@ -17,24 +19,55 @@ class PoolCard extends Component {
 
     }
 
-    const buttonStyle = {
-      marginRight:"1em",
-      color:"#1a1a1a"
+
+
+    function ActivePool(){
+      //check if you can join the pool
+      if (active){
+        return (
+          <Card  title={<h2 style={{color:"white"}}>{title}</h2>}
+          style={style}
+          hoverable={true}
+          extra={`${competitorCount}/${maxParticipants}`}>
+          <h1 style={{textTransform:"uppercase"}}>This Pool is already underway!</h1>
+          <p>{competitorCount}/{maxParticipants}</p>
+          <p>{desc}</p>
+          <p>{cost}</p>
+          <Button disabled shape="round" style={{margin:"1em 1em"}}><Link to={`/pools/${poolID}/join`}>Join Pool</Link></Button>
+          <Button shape="round" style={{margin:"1em 1em"}}><Link to={`/pools/${poolID}`}>Go To Board</Link></Button>
+          </Card>
+        )
+      } 
+      //available pool card
+      else
+       {
+        return (
+          <Card
+          title={<h2 style={{color:"white"}}>{title}</h2>}
+         style={style}
+         hoverable={true}
+         extra={`${competitorCount}/${maxParticipants}`}
+        >
+          <p>{competitorCount}/{maxParticipants}</p>
+          <p>{desc}</p>
+          <p>{cost}</p>
+          <Button style={{margin:"1em 1em"}} shape="round"><Link to={`/pools/${poolID}/join`}>Join Pool</Link></Button>
+          <Button style={{margin:"1em 1em"}} shape="round"><Link to={`/pools/${poolID}`}>Go To Board</Link></Button>
+        </Card>
+        )
+      }
     }
 
+
+
+ 
+  
+
     return (
-      <Card
-        title={<h2 style={{color:"white"}}>{title}</h2>}
-       style={style}
-       hoverable={true}
-       extra={`${competitorCount}/${maxParticipants}`}
-      >
-        <p>{competitorCount}/{maxParticipants}</p>
-        <p>{desc}</p>
-        <p>{cost}</p>
-        <Button style={buttonStyle} shape="round"><Link to={`/pools/${poolID}/join`}>Join Pool</Link></Button>
-        <Button style={buttonStyle} shape="round"><Link to={`/pools/${poolID}`}>Go To Board</Link></Button>
-      </Card>
+      <>
+        <ActivePool/>
+      </>
+
     )
   }
 }
