@@ -60,6 +60,7 @@ class App extends Component {
             {/* AuthRoutes Need to check for authenticated boolean */}
             <AuthRoute exact path="/home" component={home} />
             <AuthRoute exact path="/about" component={about} />
+            <AuthRoute exact path="/profile" component={about} />
 
             {/* AdminRoutes need to check for isAdmin toggle && authenticated */}
             <AdminRoute exact path="/admin" component={admin}/>

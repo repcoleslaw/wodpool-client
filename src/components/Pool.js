@@ -33,8 +33,13 @@ class PoolCard extends Component {
           <p>{competitorCount}/{maxParticipants}</p>
           <p>{desc}</p>
           <p>{cost}</p>
+          {/* add how to play along without joining this reward package "if you missed it, still follow along" */}
           <Button disabled shape="round" style={{margin:"1em 1em"}}><Link to={`/pools/${poolID}/join`}>Join Pool</Link></Button>
           <Button shape="round" style={{margin:"1em 1em"}}><Link to={`/pools/${poolID}`}>Go To Board</Link></Button>
+          {/* //link to next one */}
+          <br/>
+          <Button>Sign up for the next Pool!</Button>
+          
           </Card>
         )
       } 
